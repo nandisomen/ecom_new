@@ -22,8 +22,8 @@
      		<tbody>
 
                     <?php
-                    $customer_session= $_SESSION['customer_email'];
-                    $get_customer="select * from customers where customer_email='$customer_session'";
+                    $customer_session= $_SESSION['customer_name'];
+                    $get_customer="select * from customers where customer_name='$customer_session'";
                     $run_cust=mysqli_query($con, $get_customer);
                     $row_cust=mysqli_fetch_array($run_cust);
                     $customer_id=$row_cust['customer_id'];
