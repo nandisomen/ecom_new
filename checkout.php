@@ -96,7 +96,7 @@ if(isset($_GET['delete_all'])){
               <li class="nav-item">
                      <?php
 
-                    if (!isset($_SESSION['customer_email'])){
+                    if (!isset($_SESSION['customer_name'])){
                     echo "<a href='customer/customer_login.php' class='nav nav-link'>Login</a>";
 
                          } else{
@@ -113,10 +113,10 @@ if(isset($_GET['delete_all'])){
       <a href="#" class="btn btn-sucess btn-sm">
           <?php
 
-        if (!isset($_SESSION['customer_email'])){
+        if (!isset($_SESSION['customer_name'])){
         echo "Welcome Guest";
       }else{
-      echo "Welcome  " .$_SESSION['customer_email'] . "";
+      echo "Welcome  " .$_SESSION['customer_name'] . "";
     }
 
 
@@ -132,7 +132,7 @@ if(isset($_GET['delete_all'])){
         <div class="col-md-6 offer">
             <a href="#" class="btn btn-success btn-sm">
                 <?php
-                echo isset($_SESSION['customer_email']) ? "Welcome: " . $_SESSION['customer_email'] : "Welcome Guest";
+                echo isset($_SESSION['customer_name']) ? "Welcome: " . $_SESSION['customer_name'] : "Welcome Guest";
                 ?>
             </a>
         </div>
@@ -147,7 +147,7 @@ if(isset($_GET['delete_all'])){
                     <ul class="menu">
                         <li><a href="cart.php" class=""><i class="fa fa-shopping-cart"></i><span><?php item(); ?> items in cart</span></a></li>
                         <li><a class="active" href="cart.php"><i class="fa fa-shopping-cart"></i>Goto Cart</a></li>
-                        <li><?php echo isset($_SESSION['customer_email']) ? "<a href='logout.php'>Logout</a>" : "<a href='customer_login.php'>Login</a>"; ?></li>
+                        <li><?php echo isset($_SESSION['customer_name']) ? "<a href='logout.php'>Logout</a>" : "<a href='customer_login.php'>Login</a>"; ?></li>
                     </ul>
                 </div>
             </ul>
@@ -159,7 +159,7 @@ if(isset($_GET['delete_all'])){
 <div class="col-8 mx-auto mt-5">
                               <?php
 
-                              if (!isset($_SESSION['customer_email'])) {
+                              if (!isset($_SESSION['customer_name'])) {
                                 include ('customer/customer_login.php');
                               }else{
                                 include ('payment_options.php');
