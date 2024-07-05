@@ -14,13 +14,14 @@ include("../functions/functions.php");
       $run_cust=mysqli_query($con, $select_customers);
       $get_ip=getUserIp();
       $check_customer=mysqli_num_rows($run_cust);
+      if ($check_customer==0) {
+        echo "<script>alert('Password/Email Wrong')</script>";
+        echo "<script>window.open('customer_login.php','_self')</script>";
+        exit();
+        }
       $select_cart="select * from cart where ip_add='$get_ip'";
       $run_cart=mysqli_query($con, $select_cart);
       $check_cart=mysqli_num_rows($run_cart);
-      if ($check_customer==0) {
-          echo "<script>alert('Password/Email Wrong')</script>";
-          exit();
-      }
       if ($check_customer==1 AND $check_cart==0) {
           $_SESSION['customer_email']=$customer_email;
           echo "<script>alert('You are logged In')</script>";
