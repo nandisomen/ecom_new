@@ -2,8 +2,8 @@
 	<div class="panel-heading">
 
         <?php
-        $session_customer=$_SESSION['customer_email'];
-        $get_cust="select * from customers where customer_email='$session_customer'";
+        $session_customer=$_SESSION['customer_name'];
+        $get_cust="select * from customers where customer_name='$session_customer'";
         $run_cust=mysqli_query($con, $get_cust);
         $row_customers=mysqli_fetch_array($run_cust);
         $customer_image= $row_customers['customer_image'];
