@@ -30,7 +30,15 @@ if (isset($_POST['verify'])) {
         $run_update = mysqli_query($con, $update_customer);
 
         if ($run_update) {
+          $select_customer_name = "SELECT customer_name FROM customers WHERE customer_email='$c_email'";
+            $run_customer_name = mysqli_query($con, $select_customer_name);
+            $row_customer_name = mysqli_fetch_assoc($run_customer_name);
+            $customer_name = $row_customer_name['customer_name'];
             unset($_SESSION['activation_code']);
+            $select_customer_name = "SELECT customer_name FROM customers WHERE customer_email='$c_email'";
+            $run_customer_name = mysqli_query($con, $select_customer_name);
+            $row_customer_name = mysqli_fetch_assoc($run_customer_name);
+            $customer_name = $row_customer_name['customer_name'];
             echo "<script>alert('Your account has been activated!')</script>";
             echo "<script>window.open('index.php', '_self')</script>";
         } else {
