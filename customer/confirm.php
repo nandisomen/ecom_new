@@ -51,10 +51,10 @@ if (isset($_GET['order_id'])) {
     <a href="#" class="btn btn-sucess btn-sm">
            <?php
 
-        if (!isset($_SESSION['customer_email'])){
+        if (!isset($_SESSION['customer_name'])){
         echo "Welcome Guest";
       }else{
-      echo "Welcome: " .$_SESSION['customer_email'] . "";
+      echo "Welcome: " .$_SESSION['customer_name'] . "";
     }
 
 
@@ -109,7 +109,7 @@ if (isset($_GET['order_id'])) {
                    <li>
                    <?php
 
-                    if (!isset($_SESSION['customer_email'])){
+                    if (!isset($_SESSION['customer_name'])){
                     echo "<a href='checkout.php'>My Account</a>";
 
                          } else{
@@ -126,7 +126,7 @@ if (isset($_GET['order_id'])) {
                    <li>
                      <?php
 
-                    if (!isset($_SESSION['customer_email'])){
+                    if (!isset($_SESSION['customer_name'])){
                     echo "<a href='checkout.php'>Login</a>";
 
                          } else{

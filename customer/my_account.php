@@ -45,10 +45,10 @@ include("../functions/functions.php");
     <a href="#" class="btn btn-sucess btn-sm">
            <?php
 
-        if (!isset($_SESSION['customer_email'])){
+        if (!isset($_SESSION['customer_name'])){
         echo "Welcome Guest";
       }else{
-      echo "Welcome: " .$_SESSION['customer_email'] . "";
+      echo "Welcome: " .$_SESSION['customer_name'] . "";
     }
 
 
@@ -103,7 +103,7 @@ include("../functions/functions.php");
                    <li>
                    <?php
 
-                    if (!isset($_SESSION['customer_email'])){
+                    if (!isset($_SESSION['customer_name'])){
                     echo "<a href='checkout.php'>My Account</a>";
 
                          } else{
@@ -120,7 +120,7 @@ include("../functions/functions.php");
                    <li>
                      <?php
 
-                    if (!isset($_SESSION['customer_email'])){
+                    if (!isset($_SESSION['customer_name'])){
                     echo "<a href='checkout.php'>Login</a>";
 
                          } else{

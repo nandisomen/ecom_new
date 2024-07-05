@@ -190,6 +190,7 @@ if (isset($_POST['submit'])) {
     $c_email = $_POST['c_email'];
     $c_password = $_POST['c_password'];
     $c_confirm_password = $_POST['c_confirm_password'];
+    $hashed_password = password_hash($c_password, PASSWORD_DEFAULT);
     $c_country = $_POST['c_country'];
     $c_city = $_POST['c_city'];
     $c_contact = $_POST['c_contact'];
@@ -225,7 +226,7 @@ if (isset($_POST['submit'])) {
 
     move_uploaded_file($c_tmp_image, "customer/customer_images/$c_image");
 
-    $insert_customer = "INSERT INTO customers (customer_name, customer_email, customer_pass, customer_country, customer_city, customer_contact, customer_address, customer_image, customer_ip, otp, activation_code, status) VALUES ('$c_name', '$c_email', '$c_password', '$c_country', '$c_city', '$c_contact', '$c_address', '$c_image', '$c_ip', '$otp', '$activation_code', 'inactive')";
+    $insert_customer = "INSERT INTO customers (customer_name, customer_email, customer_pass, customer_country, customer_city, customer_contact, customer_address, customer_image, customer_ip, otp, activation_code, status) VALUES ('$c_name', '$c_email', '$hashed_password', '$c_country', '$c_city', '$c_contact', '$c_address', '$c_image', '$c_ip', '$otp', '$activation_code', 'inactive')";
     $run_customer = mysqli_query($con,$insert_customer);
 
     if ($run_customer) {
